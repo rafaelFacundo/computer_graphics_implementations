@@ -249,7 +249,6 @@ returnType Cylinder::does_the_point_intercept(Vector *dir, Vector *P_o){
                 this->setInterception(true);
                 this->setIntercBase(true);
                 this->setIntercLid(false);
-
             }else if (T2_top.doesIntersect && (T2_top.point_of_intersection < Ti_1)) {
                 result.point_of_intersection = T2_top.point_of_intersection;
                 result.doesIntersect = true;
@@ -266,7 +265,6 @@ returnType Cylinder::does_the_point_intercept(Vector *dir, Vector *P_o){
         }else if (Ti_2_verification) {
             returnType T1_base = didThePointIntercepted(dir, P_o, this->get_B_vector());
             returnType T1_top = didThePointIntercepted(dir, P_o, this->get_center_top_vector());
-
             if (T1_base.doesIntersect && (T1_base.point_of_intersection < Ti_2)) {
                 result.point_of_intersection = Ti_1;
                 result.doesIntersect = true;
@@ -281,7 +279,6 @@ returnType Cylinder::does_the_point_intercept(Vector *dir, Vector *P_o){
                 this->setInterception(false);
             }
         }
-
     }else {
         returnType bse = didThePointIntercepted(dir, P_o, this->get_B_vector());
         returnType tp = didThePointIntercepted(dir, P_o, this->get_center_top_vector());
@@ -299,6 +296,5 @@ returnType Cylinder::does_the_point_intercept(Vector *dir, Vector *P_o){
             this->setIntercLid(true);
         }
     }
-
     return result;
 };
